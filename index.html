@@ -1,0 +1,60 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>3010-iji</title>
+    </head>
+    <body>
+
+        <h1>3010-iji</h1>
+
+        <h2>New Post:</h2>
+
+        <form id="item_form">
+            <label for="username">Name of Seller:</label>
+            <input type="text" id="username" name="username"><br>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title"><br>
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description"><br>
+            <input type="submit" value="Upload item" onclick="post_items()">
+        </form>
+
+        <div>
+            <p id="items">Items:</p>
+        </div>
+    <script>
+        getItems();
+
+        function post_items(){
+            var xhttp = new XMLHttpRequest();
+
+            var name = document.getElementById("item_form").elements.namedItem("username").value;
+            var title = document.getElementById("item_form").elements.namedItem("title").value;
+            var description = document.getElementById("item_form").elements.namedItem("description").value;
+
+            var myJson = {"username": name, "title": title, "description": description}
+            xhttp.open("POST", "/posts", true);
+            xhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+            xhttp.send(JSON.stringify(myJson));
+
+            getItems();
+        }
+
+        function getItems(){
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onload = function() {
+                var myObj = JSON.parse(this.responseText);
+                var items = "";
+                for(var i = 0; i<myObj.length; i++){
+                    items += JSON.stringify(myObj[i]) + "\n";
+                }
+                document.getElementById("items").innerText = items;
+            }
+            xhttp.open("GET", "/posts");
+            xhttp.send();
+        }
+    </script>
+
+    </body>
+</html>
