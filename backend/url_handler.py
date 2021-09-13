@@ -1,5 +1,5 @@
 import json
-from database import Database
+from backend.database import Database
 
 db = Database()
 

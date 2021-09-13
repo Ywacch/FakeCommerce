@@ -1,8 +1,9 @@
 import sys
 import uuid
+import sqlite3
 
 sys.path.append('../../')
-import sqlite3
+from backend import db_path
 
 
 def keygen():
@@ -13,7 +14,7 @@ class Database:
     def __init__(self):
         try:
             # connects to, or creates the file
-            self.connection = sqlite3.connect("items.db")
+            self.connection = sqlite3.connect(db_path)
             self.cursor = self.connection.cursor()
         except Exception as e:
             print(e)
