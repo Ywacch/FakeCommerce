@@ -1,3 +1,3 @@
 import os
 
-db_path = os.path.join(os.path.dirname(__file__), "../files/items.db")
+db_path = os.path.join(os.path.dirname(__file__), "../database.db")

@@ -1,11 +1,11 @@
 import socket
 import traceback
-from backend import url_handler
+from backend.url_handler import url_handler as url
 
 
 def start_socket():
-    hostname = "0.0.0.0"
-    port = 8001
+    hostname = "172.105.24.31"
+    port = 5555
 
     # create an INET, STREAMing socket
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as serversock:
@@ -29,7 +29,7 @@ def start_socket():
                     headers = data.decode('UTF-8').splitlines()
                     print(headers[0])
 
-                    response = url_handler(headers)
+                    response = url(headers)
 
                     print(f'sending a status of {response["response_status"]}')
                     response_header = f"HTTP/1.1 {response['response_status']}\nContent-Type: text/html\n\n"
