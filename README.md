@@ -11,4 +11,4 @@ An ecommerce site with a non refreshing frontend and a Backend REST API
     - GET/item/item_id: gets the listing details for 1 item
     - DELETE/item/item_id: Removes an item from being listed for sale
     - POST/item: lists an item for sale
-  - Server is implemented using sockets   
+  - Server is implemented using sockets (runs on http://172.105.24.31:5555/)   
