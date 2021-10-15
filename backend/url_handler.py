@@ -2,6 +2,7 @@ import json
 from backend.database import Database
 
 db = Database()
+html_path = "../frontend/index.html"
 
 
 def url_handler(headers):
@@ -26,7 +27,7 @@ def get_handler(url_params):
             response_data['response_content'] = json.dumps(items).encode('utf-8')
             response_data['response_status'] = '200 OK'
         else:  # go to home page
-            index_html = open("index.html", 'rb')
+            index_html = open(html_path, 'rb')
             html = index_html.read()
             index_html.close()
 
