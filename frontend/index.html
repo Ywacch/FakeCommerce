@@ -6,19 +6,65 @@
     </head>
     <body>
 
-        <h1>FakeCommerce</h1>
+        <h1 class="is-size-2 has-text-weight-bold">FakeCommerce</h1>
 
-        <h2>New Post:</h2>
+        <h2 class="is-size-4">New Post:</h2>
+        
+        <section class="section">
+            <div class="columns">
 
-        <form id="item_form">
-            <label for="username">Name of Seller:</label>
-            <input type="text" id="username" name="username"><br>
-            <label for="title">Title:</label>
-            <input type="text" id="title" name="title"><br>
-            <label for="description">Description:</label>
-            <input type="text" id="description" name="description"><br>
-            <input type="submit" value="Upload item" onclick="post_items()">
-        </form>
+                <div class="column is-two-fifths">
+                    <form id="item_form">
+
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                              <label class="label" for="username">Seller:</label>
+                            </div>
+                            <div class="field-body">
+                              <div class="field">
+                                <div class="control">
+                                  <input class="input" type="text" id="username" name="username">
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                              <label class="label" for="title">Title:</label>
+                            </div>
+                            <div class="field-body">
+                              <div class="field">
+                                <div class="control">
+                                  <input class="input" type="text" id="title" name="title">
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                              <label class="label" for="description">Description:</label>
+                            </div>
+                            <div class="field-body">
+                              <div class="field">
+                                <div class="control">
+                                  <input class="input" type="text" id="description" name="description">
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-1 has-text-centered">
+                            <input type="submit"  class="button is-warning" value="Upload item" onclick="post_items()">
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        
 
         <div>
             <p id="items">Items:</p>

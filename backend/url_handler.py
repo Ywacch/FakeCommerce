@@ -2,7 +2,7 @@ import json
 from backend.database import Database
 
 db = Database()
-html_path = "../frontend/index.html"
+html_path = "./frontend/index.html"
 
 
 def url_handler(headers):
